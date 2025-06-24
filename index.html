@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ball Knower - Streak Mode</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🏈 Are you a ball knower?</h1>
+        <p><strong>Streak:</strong> {{ streak }}</p>
+
+        <form action="/answer" method="POST">
+            <p class="question"><strong>{{ question }}</strong></p>
+            <div class="choices">
+                {% for choice in choices %}
+                    <label class="choice">
+                        <input type="radio" name="choice" value="{{ choice }}" required>
+                        {{ choice }}
+                    </label><br>
+                {% endfor %}
+            </div>
+            <input type="submit" value="Submit" class="submit-btn">
+        </form>
+    </div>
+</body>
+</html>
